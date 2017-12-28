@@ -1,5 +1,7 @@
 package mx.dads.infotec.kukulkan;
 
+import static mx.dads.infotec.kukulkan.Constants.ROOT;
+
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import java.nio.file.FileVisitor;
@@ -15,7 +17,6 @@ public final class RemoveUnderScore {
 	public static final Pattern UNDERSCORE_PATTERN = Pattern.compile("^_[\\w.-]*$");
 
 	public static void main(String... aArgs) throws IOException {
-		String ROOT = "/home/daniel/Desktop/migration/test";
 		FileVisitor<Path> fileProcessor = new ProcessFile();
 		Files.walkFileTree(Paths.get(ROOT), fileProcessor);
 	}
@@ -25,12 +26,16 @@ public final class RemoveUnderScore {
 		public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
 			if (UNDERSCORE_PATTERN.matcher(file.getFileName().toString()).matches()) {
 				String ftlWord = file.getFileName().toString().replaceFirst("^_", "") + ".ftl";
-				System.out.println(Paths.get(file.getParent().toString(), ftlWord));
+				newName(file, ftlWord);
 			} else {
-				System.out.println(file.getFileName().toString());
+				
 			}
 
 			return FileVisitResult.CONTINUE;
 		}
+	}
+
+	private static Path newName(Path oldName, String newNameString) throws IOException {
+		return Files.move(oldName, oldName.resolveSibling(newNameString));
 	}
 }

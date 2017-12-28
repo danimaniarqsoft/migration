@@ -1,5 +1,7 @@
 package mx.dads.infotec.kukulkan;
 
+import static mx.dads.infotec.kukulkan.Constants.ROOT;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -13,12 +15,11 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.regex.Pattern;
 
 public final class RemoveHeader {
 
 	public static void main(String... aArgs) throws IOException {
-		String ROOT = "/home/daniel/git/migration/kukulkan-files/src/main/resources";
+		;
 		FileVisitor<Path> fileProcessor = new ProcessFile();
 		Files.walkFileTree(Paths.get(ROOT), fileProcessor);
 	}
