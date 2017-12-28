@@ -2,7 +2,7 @@
 /target/www/**
 /src/test/javascript/coverage/
 /src/test/javascript/PhantomJS*/
-
+**/target
 ######################
 # Eclipse
 ######################
@@ -24,5 +24,4 @@ local.properties
 
 # External tool builders
 .externalToolBuilders/**
-
 
