@@ -28,7 +28,7 @@ public final class RemoveUnderScore {
 				String ftlWord = file.getFileName().toString().replaceFirst("^_", "") + ".ftl";
 				newName(file, ftlWord);
 			} else {
-				
+				System.out.println("no change: " + file.toString());
 			}
 
 			return FileVisitResult.CONTINUE;
