@@ -1,19 +1,17 @@
 package mx.dads.infotec.kukulkan;
 
-import static mx.dads.infotec.kukulkan.Constants.ROOT;
+import static mx.dads.infotec.kukulkan.FileUtil.ROOT;
+import static mx.dads.infotec.kukulkan.FileUtil.saveToFile;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.FileVisitResult;
 import java.nio.file.FileVisitor;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
-import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
 
 public final class RemoveHeader {
@@ -46,26 +44,6 @@ public final class RemoveHeader {
 			}
 
 			return FileVisitResult.CONTINUE;
-		}
-	}
-
-	private static boolean saveToFile(Path pathToSave, String content) {
-		createDirectories(pathToSave);
-		try (final BufferedWriter out = Files.newBufferedWriter(pathToSave, StandardCharsets.UTF_8,
-				StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
-			out.write(content);
-			return true;
-		} catch (IOException ioe) {
-			return false;
-		}
-	}
-
-	private static boolean createDirectories(Path path) {
-		try {
-			Files.createDirectories(path.getParent());
-			return true;
-		} catch (IOException e) {
-			return false;
 		}
 	}
 }
