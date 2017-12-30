@@ -12,8 +12,8 @@ public class CopyFile extends AbstractFileVisitor {
     @Override
     public FileVisitResult processVisitFile(Path file) throws IOException {
         Path from = file;
-        Path to = Paths.get(from.toString().replaceFirst("/git/", "/archetype/"));
-        System.out.println("savint to: " + to.toString());
+        Path to = Paths.get(from.toString().replaceFirst("/git/", "/archetype/").replaceFirst("mx/infotec/dads/archetype", "package"));
+        System.out.println("save to: " + to.toString());
         FileUtil.copy(from, to);
         return FileVisitResult.CONTINUE;
     }
