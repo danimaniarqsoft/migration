@@ -21,9 +21,9 @@ public final class TestPattern {
     private static final class ProcessFile extends SimpleFileVisitor<Path> {
         @Override
         public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-            if(file.getFileName().toString().equals("pom.xml")){
+            if(file.getFileName().toString().equals("LoggingConfiguration.java")){
                 String sContent = new String(Files.readAllBytes(file));
-                sContent = sContent.replaceAll("(\\$\\{.*\\})", "\\${r\"$1\"}");
+                sContent = sContent.replaceAll("(\\$\\{.*?\\})", "\\${r\"$1\"}");
                 System.out.println(sContent);
             }
             return FileVisitResult.CONTINUE;
