@@ -15,20 +15,17 @@ public class ReplaceMetaData extends AbstractFileVisitor {
         Path to = Paths.get(file.toString().replaceFirst("/git/", "/archetype/")
                 .replaceFirst("mx/infotec/dads/archetype", "package"));
         if (isTemplate(file)) {
-            String sContent = new String(Files.readAllBytes(file));
+            String sContent = new String(Files.readAllBytes(file)).replaceAll("(\\$\\{.*\\})", "\\${r\"$1\"}");
             for (Tupla tupla : FileUtil.getTuplas()) {
                 sContent = sContent.replaceAll(tupla.getFrom(), tupla.getTo());
             }
-
             System.out.println(Paths.get(to.toString() + ".ftl"));
             FileUtil.saveToFile(Paths.get(to.toString() + ".ftl"), sContent);
 
         } else {
             System.out.println(Paths.get(to.toString()));
             FileUtil.copy(file, to);
-
         }
-
         return FileVisitResult.CONTINUE;
     }
 

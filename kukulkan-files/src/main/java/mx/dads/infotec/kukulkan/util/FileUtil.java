@@ -32,7 +32,9 @@ public class FileUtil {
             "node_modules", "bower_components" };
     protected static final String[] EXCLUDED_FILES = { ".classpath", ".project", ".factorypath" };
     public static final String[] EXCLUDED_PROCESS_FILES = { "maven-wrapper.properties", "maven-wrapper.jar",
-            "logo-jhipster.png", "logo-jhipster.png", "favicon.ico" };
+            "logo-jhipster.png", "hipster2x.png", "Dockerfile", "banner.txt", "creationEmail.html",
+            "activationEmail.html", "passwordResetEmail.html", "error.html", "testEmail.html", "mvnw.cmd", "mvnw",
+            "hipster.png", "favicon.ico" };
 
     private FileUtil() {
 
@@ -86,13 +88,9 @@ public class FileUtil {
 
     public static List<Tupla> getTuplas() {
         List<Tupla> tuplas = new ArrayList<>();
-        // tuplas.add(new Tupla("", "\\$\\{project.id\\}"));
-        // tuplas.add(new Tupla("", "\\$\\{project.groupId\\}"));
         tuplas.add(new Tupla("mx.infotec.dads.archetype", "\\$\\{project.packaging\\}"));
         tuplas.add(new Tupla("kukulkan", "\\${project.id}"));
         tuplas.add(new Tupla("Kukulkan", "\\${project.id?cap_first}"));
-        // tuplas.add(new Tupla("", ""));
-        // tuplas.add(new Tupla("", ""));
         return tuplas;
     }
 
