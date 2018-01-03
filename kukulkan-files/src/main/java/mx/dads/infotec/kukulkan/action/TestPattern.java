@@ -1,6 +1,6 @@
 package mx.dads.infotec.kukulkan.action;
 
-import static mx.dads.infotec.kukulkan.util.FileUtil.ARCHETYPE_FOLDER;
+import static mx.dads.infotec.kukulkan.util.FileUtil.ARCHETYPE_INPUT_FOLDER;
 
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -15,7 +15,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 public final class TestPattern {
     public static void main(String... aArgs) throws IOException {
         FileVisitor<Path> fileProcessor = new ProcessFile();
-        Files.walkFileTree(Paths.get(ARCHETYPE_FOLDER), fileProcessor);
+        Files.walkFileTree(Paths.get(ARCHETYPE_INPUT_FOLDER), fileProcessor);
     }
 
     private static final class ProcessFile extends SimpleFileVisitor<Path> {

@@ -1,6 +1,7 @@
 package mx.dads.infotec.kukulkan.action;
 
-import static mx.dads.infotec.kukulkan.util.FileUtil.ARCHETYPE_FOLDER;
+import static mx.dads.infotec.kukulkan.util.FileUtil.ARCHETYPE_INPUT_FOLDER;
+import static mx.dads.infotec.kukulkan.util.FileUtil.ARCHETYPE_OUTPUT_FOLDER;
 
 import java.io.IOException;
 import java.nio.file.FileVisitor;
@@ -15,7 +16,7 @@ public final class CreateArchetype {
 
     public static void main(String... aArgs) throws IOException {
         // Delete target folder
-        FileUtil.delete(Paths.get("/home/daniel/archetype/angularjs-spring-mongo"));
+        FileUtil.delete(Paths.get(ARCHETYPE_OUTPUT_FOLDER));
         System.out.println("************************");
         System.out.println("************************");
         System.out.println("************************");
@@ -24,6 +25,6 @@ public final class CreateArchetype {
         System.out.println("************************");
         // Replace in place metaData
         FileVisitor<Path> replaceMetaDataProcessor = new ReplaceMetaData();
-        Files.walkFileTree(Paths.get(ARCHETYPE_FOLDER), replaceMetaDataProcessor);
+        Files.walkFileTree(Paths.get(ARCHETYPE_INPUT_FOLDER), replaceMetaDataProcessor);
     }
 }

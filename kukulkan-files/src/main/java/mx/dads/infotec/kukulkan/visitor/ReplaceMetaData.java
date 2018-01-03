@@ -19,13 +19,9 @@ public class ReplaceMetaData extends AbstractFileVisitor {
             for (Tupla tupla : FileUtil.getTuplas()) {
                 sContent = sContent.replaceAll(tupla.getFrom(), tupla.getTo());
             }
-            // System.out.println(Paths.get(to.toString() + ".ftl"));
             formatOutput(to.toString() + ".ftl");
-
             FileUtil.saveToFile(Paths.get(to.toString() + ".ftl"), sContent);
-
         } else {
-            // System.out.println(Paths.get(to.toString()));
             formatOutput(to.toString());
             FileUtil.copy(file, to);
         }

@@ -3,12 +3,7 @@ package mx.dads.infotec.kukulkan.util;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
@@ -18,23 +13,22 @@ import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 import mx.dads.infotec.kukulkan.domain.Tupla;
 
 public class FileUtil {
 
     public static final String ROOT = "/home/daniel/git/migration/kukulkan-files/src/main/resources";
-    public static final String ARCHETYPE_FOLDER = "/home/daniel/git/angularjs-spring-mongo";
+    public static final String ARCHETYPE_INPUT_FOLDER = "/home/daniel/git/angularjs-spring-mongo";
+    public static final String ARCHETYPE_OUTPUT_FOLDER = "/home/daniel/archetype/angularjs-spring-mongo";
 
     protected static final String[] EXCLUDED_FOLDERS = { ".settings", ".git", "target", ".apt_generated",
             "node_modules", "bower_components" };
     protected static final String[] EXCLUDED_FILES = { ".classpath", ".project", ".factorypath" };
     public static final String[] EXCLUDED_PROCESS_FILES = { "maven-wrapper.properties", "maven-wrapper.jar",
-            "logo-jhipster.png", "hipster2x.png", "Dockerfile", "banner.txt", "creationEmail.html",
+            "logo-app.png", "app2x.png", "Dockerfile", "banner.txt", "creationEmail.html",
             "activationEmail.html", "passwordResetEmail.html", "error.html", "testEmail.html", "mvnw.cmd", "mvnw",
-            "hipster.png", "favicon.ico" };
+            "app.png", "favicon.ico" };
 
     private FileUtil() {
 
