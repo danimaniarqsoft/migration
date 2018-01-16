@@ -19,10 +19,8 @@ import mx.dads.infotec.kukulkan.domain.Tupla;
 public class FileUtil {
 
     public static final String ROOT = "/home/daniel/git/migration/kukulkan-files/src/main/resources";
-    public static final String ARCHETYPE_INPUT_FOLDER = "/home/daniel/git/angularjs-spring-mongo";
-    public static final String ARCHETYPE_OUTPUT_FOLDER = "/home/daniel/archetype/angularjs-spring-mongo";
 
-    protected static final String[] EXCLUDED_FOLDERS = { ".settings", ".git", "target", ".apt_generated",
+    protected static final String[] EXCLUDED_FOLDERS = { ".settings", ".git", "target", ".apt_generated", "node", "node_module",
             "node_modules", "bower_components" };
     protected static final String[] EXCLUDED_FILES = { ".classpath", ".project", ".factorypath" };
     public static final String[] EXCLUDED_PROCESS_FILES = { "maven-wrapper.properties", "maven-wrapper.jar",
