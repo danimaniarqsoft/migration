@@ -2,12 +2,15 @@ package mx.dads.infotec.kukulkan.domain;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+import mx.dads.infotec.kukulkan.util.ExcludeFiles;
 
 public enum Technology {
 
-    ANGULAR_JS("angularjs", "mx/infotec/dads/archetype"), 
-    JAVA_SPRING_JPA("angularjs-spring-jpa", "mx/infotec/dads/archetype"), 
-    JAVA_SPRING_MONGO("angularjs-spring-mongo", "mx/infotec/dads/archetype");
+    ANGULAR_JS("angularjs", "@NULL"), JAVA_SPRING_JPA("angularjs-spring-jpa",
+            "mx/infotec/dads/archetype"), JAVA_SPRING_MONGO("angularjs-spring-mongo", "mx/infotec/dads/archetype");
 
     private String folderName;
     private String packaging;
@@ -33,5 +36,25 @@ public enum Technology {
 
     public String getPackaging() {
         return this.packaging;
+    }
+
+    public List<String> getExcludedFiles() {
+        if (this.equals(JAVA_SPRING_JPA) || this.equals(JAVA_SPRING_MONGO)) {
+            return ExcludeFiles.getAngularExclusion();
+        } else {
+            return new ArrayList<>();
+        }
+    }
+
+    public List<String> getExcludedFolders() {
+        if (this.equals(JAVA_SPRING_JPA) || this.equals(JAVA_SPRING_MONGO)) {
+            return ExcludeFiles.getWebAppExclusion();
+        } else {
+            return new ArrayList<>();
+        }
+    }
+
+    public List<String> getNoProcessedAndCopyFiles() {
+        return new ArrayList<>();
     }
 }

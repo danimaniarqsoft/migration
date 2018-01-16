@@ -20,14 +20,9 @@ public class FileUtil {
 
     public static final String ROOT = "/home/daniel/git/migration/kukulkan-files/src/main/resources";
 
-    protected static final String[] EXCLUDED_FOLDERS = { ".settings", ".git", "target", ".apt_generated", "node", "node_module",
-            "node_modules", "bower_components" };
-    protected static final String[] EXCLUDED_FILES = { ".classpath", ".project", ".factorypath" };
-    public static final String[] EXCLUDED_PROCESS_FILES = { "maven-wrapper.properties", "maven-wrapper.jar",
-            "logo-app.png", "app2x.png", "Dockerfile", "banner.txt", "creationEmail.html",
-            "activationEmail.html", "passwordResetEmail.html", "error.html", "testEmail.html", "mvnw.cmd", "mvnw",
-            "app.png", "favicon.ico" };
-
+    public static final List<String> EXCLUDED_FOLDERS = ExcludeFiles.getExcludedFolders();
+    public static final List<String> EXCLUDED_FILES = ExcludeFiles.getExcludedFiles();
+    public static final List<String> NO_PROCESSED_AND_COPY_FILES = ExcludeFiles.getExcludedProcessFiles();
     private FileUtil() {
 
     }

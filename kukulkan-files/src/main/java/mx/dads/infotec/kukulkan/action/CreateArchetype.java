@@ -1,7 +1,5 @@
 package mx.dads.infotec.kukulkan.action;
 
-import static mx.dads.infotec.kukulkan.domain.Technology.JAVA_SPRING_MONGO;
-
 import java.io.IOException;
 import java.nio.file.FileVisitor;
 import java.nio.file.Files;
@@ -14,10 +12,15 @@ import mx.dads.infotec.kukulkan.visitor.ReplaceMetaData;
 public final class CreateArchetype {
 
     public static void main(String... aArgs) throws IOException {
+        Technology technology = Technology.ANGULAR_JS;
+        FileUtil.EXCLUDED_FILES.addAll(technology.getExcludedFiles());
+        FileUtil.EXCLUDED_FOLDERS.addAll(technology.getExcludedFolders());
+        FileUtil.NO_PROCESSED_AND_COPY_FILES.addAll(technology.getNoProcessedAndCopyFiles());
         // Delete target folder
-        FileUtil.delete(JAVA_SPRING_MONGO.getOutputPath());
+        FileUtil.delete(technology.getOutputPath());
         // Replace in place metaData
-        FileVisitor<Path> replaceMetaDataProcessor = new ReplaceMetaData(Technology.JAVA_SPRING_MONGO);
-        Files.walkFileTree(JAVA_SPRING_MONGO.getInputPath(), replaceMetaDataProcessor);
+        FileVisitor<Path> replaceMetaDataProcessor = new ReplaceMetaData(technology);
+        Files.walkFileTree(technology.getInputPath(), replaceMetaDataProcessor);
+
     }
 }

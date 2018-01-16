@@ -40,7 +40,7 @@ public class ReplaceMetaData extends AbstractFileVisitor {
     }
 
     private boolean isTemplate(Path file) {
-        for (String word : FileUtil.EXCLUDED_PROCESS_FILES) {
+        for (String word : FileUtil.NO_PROCESSED_AND_COPY_FILES) {
             if (file.getFileName().toString().equals(word)) {
                 return false;
             }
@@ -52,13 +52,4 @@ public class ReplaceMetaData extends AbstractFileVisitor {
         System.out.println("templates.add(\"" + from + "\");");
     }
 
-    public static void main(String[] args) {
-        Path p1 = Paths.get("/home/daniel/git");
-        Path p3 = Paths.get("/home/daniel/archetype");
-        // Result is sally/bar
-        Path p1_to_p3 = p1.relativize(p3);
-        System.out.println(p1_to_p3);
-        Path p3_to_p1 = p3.relativize(p1);
-        System.out.println(p3_to_p1);
-    }
 }
