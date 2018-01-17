@@ -49,6 +49,7 @@ public class ReplaceMetaData extends AbstractFileVisitor {
     }
 
     private void formatOutput(String from) {
+        
         System.out.println("templates.add(\"" + from + "\");");
     }
 

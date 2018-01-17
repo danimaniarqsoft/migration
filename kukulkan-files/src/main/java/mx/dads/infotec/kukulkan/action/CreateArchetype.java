@@ -21,6 +21,5 @@ public final class CreateArchetype {
         // Replace in place metaData
         FileVisitor<Path> replaceMetaDataProcessor = new ReplaceMetaData(technology);
         Files.walkFileTree(technology.getInputPath(), replaceMetaDataProcessor);
-
     }
 }

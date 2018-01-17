@@ -9,23 +9,30 @@ import mx.dads.infotec.kukulkan.util.ExcludeFiles;
 
 public enum Technology {
 
-    ANGULAR_JS("angularjs", "@NULL"), JAVA_SPRING_JPA("angularjs-spring-jpa",
-            "mx/infotec/dads/archetype"), JAVA_SPRING_MONGO("angularjs-spring-mongo", "mx/infotec/dads/archetype");
+    ANGULAR_JS("angularjs", "@NULL", "ANGULAR_JS_TEMPLATE"), 
+    JAVA_SPRING_JPA("angularjs-spring-jpa", "mx/infotec/dads/archetype", "ANGULAR_SPRING_JPA_TEMPLATE"), 
+    JAVA_SPRING_MONGO("angularjs-spring-mongo", "mx/infotec/dads/archetype", "ANGULAR_SPRING_MONGO_TEMPLATE");
 
     private String folderName;
     private String packaging;
+    private String constant;
 
     public static final String INPUT_FOLDER_NAME = "/git/";
     public static final String OUTPUT_FOLDER_NAME = "/archetypes/";
+    public static final String HOME_FOLDER = System.getProperty("user.home");
 
-    private static final Path INPUT_FOLDER = Paths.get(System.getProperty("user.home"), INPUT_FOLDER_NAME);
-    private static final Path OUTPUT_FOLDER = Paths.get(System.getProperty("user.home"), OUTPUT_FOLDER_NAME);
+    private static final Path INPUT_FOLDER = Paths.get(HOME_FOLDER, INPUT_FOLDER_NAME);
+    private static final Path OUTPUT_FOLDER = Paths.get(HOME_FOLDER, OUTPUT_FOLDER_NAME);
 
-    private Technology(String folderName, String packaging) {
+    private Technology(String folderName, String packaging, String constant) {
         this.folderName = folderName;
         this.packaging = packaging;
+        this.constant = constant;
     }
 
+    public String getConstant(){
+        return this.constant;
+    }
     public Path getOutputPath() {
         return OUTPUT_FOLDER.resolve(folderName);
     }
