@@ -20,6 +20,7 @@ public final class CreateArchetype {
         FileUtil.delete(technology.getOutputPath());
         // Replace in place metaData
         FileVisitor<Path> replaceMetaDataProcessor = new ReplaceMetaData(technology);
+        System.out.println("************************");
         Files.walkFileTree(technology.getInputPath(), replaceMetaDataProcessor);
     }
 }

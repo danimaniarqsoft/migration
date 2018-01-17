@@ -9,9 +9,9 @@ import mx.dads.infotec.kukulkan.util.ExcludeFiles;
 
 public enum Technology {
 
-    ANGULAR_JS("angularjs", "@NULL", "ANGULAR_JS_TEMPLATE"), 
-    JAVA_SPRING_JPA("angularjs-spring-jpa", "mx/infotec/dads/archetype", "ANGULAR_SPRING_JPA_TEMPLATE"), 
-    JAVA_SPRING_MONGO("angularjs-spring-mongo", "mx/infotec/dads/archetype", "ANGULAR_SPRING_MONGO_TEMPLATE");
+    ANGULAR_JS("angularjs", "@NULL", "ANGULAR_JS_TEMPLATE"), JAVA_SPRING_JPA("angularjs-spring-jpa",
+            "mx/infotec/dads/archetype", "ANGULAR_SPRING_JPA_TEMPLATE"), JAVA_SPRING_MONGO("angularjs-spring-mongo",
+                    "mx/infotec/dads/archetype", "ANGULAR_SPRING_MONGO_TEMPLATE");
 
     private String folderName;
     private String packaging;
@@ -30,9 +30,14 @@ public enum Technology {
         this.constant = constant;
     }
 
-    public String getConstant(){
+    public String getFolderName() {
+        return this.folderName;
+    }
+
+    public String getConstant() {
         return this.constant;
     }
+
     public Path getOutputPath() {
         return OUTPUT_FOLDER.resolve(folderName);
     }

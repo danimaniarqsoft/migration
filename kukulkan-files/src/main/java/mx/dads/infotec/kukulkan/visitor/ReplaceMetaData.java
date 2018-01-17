@@ -49,8 +49,9 @@ public class ReplaceMetaData extends AbstractFileVisitor {
     }
 
     private void formatOutput(String from) {
-        
-        System.out.println("templates.add(\"" + from + "\");");
+        String toReplace = Technology.HOME_FOLDER + OUTPUT_FOLDER_NAME + technology.getFolderName();
+        String replacement = "";
+        System.out.println("templates.add(" + technology.getConstant()+" + \""+ from.replaceFirst(toReplace, replacement) + "\");");
     }
 
 }
