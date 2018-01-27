@@ -9,9 +9,10 @@ import mx.dads.infotec.kukulkan.util.ExcludeFiles;
 
 public enum Technology {
 
-    ANGULAR_JS("angularjs", "@NULL", "ANGULAR_JS_TEMPLATE"), JAVA_SPRING_JPA("angularjs-spring-jpa",
-            "mx/infotec/dads/archetype", "ANGULAR_SPRING_JPA_TEMPLATE"), JAVA_SPRING_MONGO("angularjs-spring-mongo",
-                    "mx/infotec/dads/archetype", "ANGULAR_SPRING_MONGO_TEMPLATE");
+    ANGULAR_JS("angularjs", "@NULL", "ANGULAR_JS_TEMPLATE"), 
+    JAVA_SPRING_JPA("angularjs-spring-jpa", "mx/infotec/dads/archetype", "ANGULAR_SPRING_JPA_TEMPLATE"), 
+    JAVA_SPRING_MONGO("angularjs-spring-mongo", "mx/infotec/dads/archetype", "ANGULAR_SPRING_MONGO_TEMPLATE"),
+    ANTLR4("antlr4", "mx/dads/infotec/archetype", "ANTLR4_TEMPLATE");
 
     private String folderName;
     private String packaging;

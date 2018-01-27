@@ -78,6 +78,8 @@ public class FileUtil {
         tuplas.add(new Tupla("mx.infotec.dads.archetype", "\\$\\{project.packaging\\}"));
         tuplas.add(new Tupla("kukulkan", "\\${project.id}"));
         tuplas.add(new Tupla("Kukulkan", "\\${project.id?cap_first}"));
+        tuplas.add(new Tupla("MyGrammar", "\\${grammar.name}"));
+        tuplas.add(new Tupla("myExtension", "\\${grammar.extension}"));
         return tuplas;
     }
 
