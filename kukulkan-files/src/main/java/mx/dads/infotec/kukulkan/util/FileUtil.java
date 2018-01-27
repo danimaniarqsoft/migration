@@ -23,6 +23,7 @@ public class FileUtil {
     public static final List<String> EXCLUDED_FOLDERS = ExcludeFiles.getExcludedFolders();
     public static final List<String> EXCLUDED_FILES = ExcludeFiles.getExcludedFiles();
     public static final List<String> NO_PROCESSED_AND_COPY_FILES = ExcludeFiles.getExcludedProcessFiles();
+
     private FileUtil() {
 
     }
@@ -76,10 +77,11 @@ public class FileUtil {
     public static List<Tupla> getTuplas() {
         List<Tupla> tuplas = new ArrayList<>();
         tuplas.add(new Tupla("mx.infotec.dads.archetype", "\\$\\{project.packaging\\}"));
+        tuplas.add(new Tupla("kukulkan-antlr4", "\\${project.id}"));
         tuplas.add(new Tupla("kukulkan", "\\${project.id}"));
         tuplas.add(new Tupla("Kukulkan", "\\${project.id?cap_first}"));
-        tuplas.add(new Tupla("MyGrammar", "\\${grammar.name}"));
-        tuplas.add(new Tupla("myExtension", "\\${grammar.extension}"));
+        tuplas.add(new Tupla("MyGrammar", "\\${project.grammarName}"));
+        tuplas.add(new Tupla("myExtension", "\\${project.grammarExtension}"));
         return tuplas;
     }
 
