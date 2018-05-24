@@ -12,7 +12,7 @@ import mx.dads.infotec.kukulkan.visitor.ReplaceMetaData;
 public final class CreateArchetype {
 
     public static void main(String... aArgs) throws IOException {
-        Technology technology = Technology.ANTLR4;
+        Technology technology = Technology.ANGULAR_JS;
         FileUtil.EXCLUDED_FILES.addAll(technology.getExcludedFiles());
         FileUtil.EXCLUDED_FOLDERS.addAll(technology.getExcludedFolders());
         FileUtil.NO_PROCESSED_AND_COPY_FILES.addAll(technology.getNoProcessedAndCopyFiles());

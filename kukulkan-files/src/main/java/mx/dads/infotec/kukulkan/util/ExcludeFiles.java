@@ -52,6 +52,14 @@ public class ExcludeFiles {
         files.add("mvnw");
         files.add("app.png");
         files.add("favicon.ico");
+        files.add("bg-ok.svg");
+        files.add("isotipo.svg");
+        files.add("logo-app.png");
+        files.add("logo.svg");
+        files.add("logo-b.svg");
+        files.add("isotipo.png");
+        files.add("avatar01.svg");
+        files.add("usuario.svg");
         return files;
     }
 
